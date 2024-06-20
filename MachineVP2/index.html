@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometric Properties</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Geometric Properties</h1>
+        <input type="file" id="imageInput" accept="image/*" class="button">
+        <div id="images-container">
+            <canvas id="originalCanvas"></canvas>
+            <canvas id="editedCanvas"></canvas>
+        </div>
+        <div id="info" class="info">
+            <p>Image Area: <span id="imageArea"></span></p>
+            <p>Object Area: <span id="objectArea"></span></p>
+            <p>Image Centroid: (<span id="imageCentroidX"></span>, <span id="imageCentroidY"></span>)</p>
+            <p>Object Centroid: (<span id="objectCentroidX"></span>, <span id="objectCentroidY"></span>)</p>
+        </div>
+        <div id="controls" class="controls">
+            <div class="control-group">
+                <button onclick="resetImage()" class="button">Reset Image</button>
+                <button onclick="rotateImage()" class="button">Rotate Image</button>
+                <input type="text" id="rotateAngle" placeholder="Angle (degrees)" class="input-small">
+            </div>
+            <div class="control-group">
+                <button onclick="mirrorImage('vertical')" class="button">Vertical Mirror</button>
+                <button onclick="mirrorImage('horizontal')" class="button">Horizontal Mirror</button>
+            </div>
+            <div class="control-group">
+                <button onclick="translateImage()" class="button">Translate Image</button>
+                <input type="text" id="translateX" placeholder="X shift" class="input-small">
+                <input type="text" id="translateY" placeholder="Y shift" class="input-small">
+            </div>
+            <div class="control-group">
+                <button onclick="showHistogram()" class="button">Show Histogram</button>
+                <button onclick="binaryProjection('horizontal')" class="button">Horizontal Projection</button>
+                <button onclick="binaryProjection('vertical')" class="button">Vertical Projection</button>
+            </div>
+            <div class="control-group">
+                <button onclick="boxObjects()" class="button">Box Objects</button>
+                <button onclick="detectCentroids()" class="button">Detect Centroids</button> <!-- New Button -->
+            </div>
+            <div class="control-group">
+                <button onclick="applyFilter('smoothing')" class="button">Smoothing Filter</button>
+                <button onclick="applyFilter('gaussianBlur')" class="button">Gaussian Blur Filter</button>
+                <button onclick="applyFilter('sharpening')" class="button">Sharpening Filter</button>
+                <button onclick="applyFilter('meanRemoval')" class="button">Mean Removal Filter</button>
+                <button onclick="applyFilter('emboss')" class="button">Emboss Filter</button>
+            </div>
+            <div id="customFilterInputs" class="custom-filter">
+                <p>Custom Kernel (3x3):</p>
+                <input type="text" id="kernel00" placeholder="0" class="input-small">
+                <input type="text" id="kernel01" placeholder="0" class="input-small">
+                <input type="text" id="kernel02" placeholder="0" class="input-small"><br>
+                <input type="text" id="kernel10" placeholder="0" class="input-small">
+                <input type="text" id="kernel11" placeholder="0" class="input-small">
+                <input type="text" id="kernel12" placeholder="0" class="input-small"><br>
+                <input type="text" id="kernel20" placeholder="0" class="input-small">
+                <input type="text" id="kernel21" placeholder="0" class="input-small">
+                <input type="text" id="kernel22" placeholder="0" class="input-small">
+            </div>
+            <button onclick="applyCustomFilter()" class="button">Custom Filter</button>
+            <button onclick="saveImage()" class="button">Save Image</button>
+        </div>
+        <div id="histogramContainer" class="histogram-container">
+            <canvas id="histogramCanvas"></canvas>
+            <div id="histogramInfo" class="histogram-info">
+                <p>Histogram Red: <span id="histRed"></span></p>
+                <p>Histogram Green: <span id="histGreen"></span></p>
+                <p>Histogram Blue: <span id="histBlue"></span></p>
+            </div>
+        </div>
+        <canvas id="binaryProjectionCanvas"></canvas>
+    </div>
+    <script src="opencv.js" async onload="onOpenCvReady();"></script>
+    <script src="index.js"></script>
+</body>
+</html>

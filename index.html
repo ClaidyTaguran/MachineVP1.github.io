@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Editor</h1>
+        <input type="file" id="upload" class="input" accept="image/*">
+        <div class="image-container" id="images-container">
+            <div class="before-after">
+                <img id="original-image" src="" alt="Original Image">
+                <img id="image" src="" alt="Edited Image">
+            </div>
+        </div>
+        <div class="controls" id="controls">
+            <div class="adjustments control-group">
+                <h2>Adjustments</h2>
+                <label>Opacity</label><input type="range" id="opacity" class="input-small" min="0" max="100" value="100">
+                <label>Brightness</label><input type="range" id="brightness" class="input-small" min="0" max="200" value="100">
+                <label>Contrast</label><input type="range" id="contrast" class="input-small" min="0" max="200" value="100">
+                <label>Saturation</label><input type="range" id="saturation" class="input-small" min="0" max="200" value="100">
+                <label>Blur</label><input type="range" id="blur" class="input-small" min="0" max="10" value="0">
+                <label>Grayscale</label><input type="range" id="grayscale" class="input-small" min="0" max="100" value="0">
+                <label>Black & White</label><input type="range" id="blackwhite" class="input-small" min="0" max="100" value="0">
+                <label>Invert</label><input type="range" id="invert" class="input-small" min="0" max="100" value="0">
+                <label>Sepia</label><input type="range" id="sepia" class="input-small" min="0" max="100" value="0">
+                <label>Hue Rotate</label><input type="range" id="hue-rotate" class="input-small" min="0" max="360" value="0">
+            </div>
+            <div class="filters control-group">
+                <h2>Filters</h2>
+                <button class="button" data-filter="night-vision">Night Vision</button>
+                <button class="button" data-filter="cyan">Cyan</button>
+                <button class="button" data-filter="magenta">Magenta</button>
+                <button class="button" data-filter="yellow">Yellow</button>
+                <button class="button" data-filter="red">Red</button>
+                <button class="button" data-filter="green">Green</button>
+                <button class="button" data-filter="blue">Blue</button>
+                <button class="button" data-filter="vintage">Vintage</button>
+                <button class="button" data-filter="cold">Cold</button>
+                <button class="button" data-filter="warm">Warm</button>
+                <button class="button" data-filter="underwater">Underwater</button>
+                <button class="button" data-filter="sunset">Sunset</button>
+            </div>
+            <div class="thresholding control-group">
+                <h2>Thresholding</h2>
+                <label>Threshold (T)</label><input type="number" id="thresholdT" class="input-small" min="0" max="255" value="128">
+                <button id="applyThreshold" class="button">Apply Threshold</button>
+                <label>Threshold (T1 & T2)</label>
+                <input type="number" id="thresholdT1" class="input-small" min="0" max="255" value="128">
+                <input type="number" id="thresholdT2" class="input-small" min="0" max="255" value="255">
+                <button id="applyThresholdLimits" class="button">Apply Threshold Limits</button>
+            </div>
+            <div class="segmentation control-group">
+                <h2>Segmentation</h2>
+                <button id="segmentImage" class="button">Segment Image</button>
+                <div id="segmentation-output" class="info"></div>
+            </div>
+            <div class="rgb-adjustment control-group">
+                <h2>RGB Adjustment</h2>
+                <label>Red</label><input type="range" id="red" class="input-small" min="0" max="255" value="255">
+                <label>Green</label><input type="range" id="green" class="input-small" min="0" max="255" value="255">
+                <label>Blue</label><input type="range" id="blue" class="input-small" min="0" max="255" value="255">
+            </div>
+            <div class="actions control-group">
+                <button id="reset" class="button">Reset</button>
+                <button id="save" class="button">Save</button>
+                <button id="rotate" class="button">Rotate</button>
+                <button id="flip" class="button">Flip</button>
+                <button id="geometric-properties" class="button">Geometric Properties</button>
+                <button id="shape-detection" class="button">Shape Detection</button>
+            </div>
+        </div>
+    </div>
+    <script src="opencv.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

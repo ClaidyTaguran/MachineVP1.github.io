@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f5092;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://seanmurphy.dev/photojs/assets/images/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Makes the background fixed during scroll */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(84, 184, 246, 0.85); /* Lighter and more vibrant blue with better transparency */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #f9fafb;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
+    color: #2945a8;
+    background-color: #f4f5f5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+    background-color: #f6f7f9;
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow for lifted effect */
+}
+
+.input, .textarea, .input-small {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1em;
+    border: 1px solid #422aa5;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.85); /* Slight transparency for a modern look */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.input-small {
+    width: 60px;
+    padding: 5px;
+    margin: 0 5px;
+    font-size: 0.9em;
+}
+
+.textarea {
+    height: 60px;
+    width: calc(100% - 20px);
+}
+
+.info, .controls, .histogram-info, .custom-filter {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow for depth */
+}
+
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+#customFilterInputs {
+    flex-basis: 100%;
+    margin: 10px 0;
+}
+
+#images-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.before-after img {
+    max-width: 300px;
+    max-height: 400px;
+}
+
+.histogram-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.histogram-info {
+    margin-left: 20px;
+}
+
+#binaryProjectionCanvas {
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    width: 300px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow for depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for interaction */
+}
+
+/* Keyframe animations for fade-in effect */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

@@ -1,0 +1,64 @@
+/* General modal styling adjustments for a modern and sleek look */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* Updated the background to a darker, more modern shade with a subtle gradient */
+    background: linear-gradient(135deg, rgb(25, 50, 75) 0%, rgb(40, 76, 118) 100%) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                center center 
+                no-repeat;
+    background-size: contain; /* Ensure the GIF fits well */
+}
+
+/* Enhanced the loading experience by customizing the scrollbar appearance */
+body.loading {
+    overflow: hidden;
+}
+
+/* Ensure modal visibility when body has the loading class, with a fade-in effect */
+body.loading .modal {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* A more dynamic background image setup for the body */
+body {
+    background-image: url('https://seanmurphy.dev/photojs/assets/images/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Makes the background fixed during scroll */
+}
+
+/* Container improvements for better visual hierarchy and readability */
+.container {
+    background-color: rgba(84, 184, 246, 0.85); /* Lighter and more vibrant blue with better transparency */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Card component adjustments for a fresher, modern look */
+.card {
+    background-color: rgba(130, 143, 214, 0.95); /* Slightly more opaque for readability */
+    margin-bottom: 20px;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow for depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for interaction */
+}
+
+/* Hover effect for cards to provide interactive feedback */
+.card:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow for lifted effect */
+}
+
+/* Keyframe animations for fade-in effect */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
